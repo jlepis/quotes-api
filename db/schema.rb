@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2018_08_30_184953) do
 
-  create_table "quotes", force: :cascade do |t|
+  create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "quote"
     t.integer "source_id"
     t.datetime "created_at", null: false
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2018_08_30_184953) do
     t.index ["source_id"], name: "index_quotes_on_source_id"
   end
 
-  create_table "sources", force: :cascade do |t|
+  create_table "sources", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.string "created_by"

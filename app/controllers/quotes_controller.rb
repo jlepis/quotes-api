@@ -34,8 +34,6 @@ class QuotesController < ApplicationController
   def random_quote
     # mysql
     # Quote.limit(5).order("RAND()")
-    # postgres
-    # User.limit(5).order("RANDOM()")
   end
 
   private
