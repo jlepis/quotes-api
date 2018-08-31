@@ -66,7 +66,7 @@ RSpec.describe 'Quotes API' do
 
   # Test suite for PUT /sources/:source_id/quotes
   describe 'POST /sources/:source_id/quotes' do
-    let(:valid_attributes) { { quote: 'Visit Narnia' }.to_json }
+    let(:valid_attributes) { { quote: 'Visit Narnia', author: "Dr. Seuss" }.to_json }
 
     context 'when request attributes are valid' do
       before do

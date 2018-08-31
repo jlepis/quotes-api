@@ -8,4 +8,6 @@ RSpec.describe Quote, type: :model do
   # Validation test
   # ensure column quote is present before saving
   it { should validate_presence_of(:quote) }
+  # ensure column author is present before saving
+  it { should validate_presence_of(:author) }
 end

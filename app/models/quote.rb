@@ -2,5 +2,5 @@ class Quote < ApplicationRecord
   belongs_to :source
 
   # validation
-  validates_presence_of :quote
+  validates_presence_of :quote, :author
 end

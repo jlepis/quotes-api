@@ -41,7 +41,7 @@ class QuotesController < ApplicationController
   private
 
   def quote_params
-    params.permit(:quote)
+    params.permit(:quote, :author)
   end
 
   def set_source
