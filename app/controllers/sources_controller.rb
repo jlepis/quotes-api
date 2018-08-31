@@ -3,13 +3,13 @@ class SourcesController < ApplicationController
 
   # GET /sources
   def index
-    @sources = Source.all
+    @sources = current_user.sources
     json_response(@sources)
   end
 
   # POST /sources
   def create
-    @source = Source.create!(source_params)
+    @source = current_user.sources.create!(source_params)
     json_response(@source, :created)
   end
 
@@ -34,7 +34,7 @@ class SourcesController < ApplicationController
 
   def source_params
     # whitelist params
-    params.permit(:title, :description, :created_by)
+    params.permit(:title, :description)
   end
 
   def set_source
