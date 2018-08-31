@@ -1,5 +1,5 @@
 class QuotesController < ApplicationController
-  before_action :set_source
+  before_action :set_source, except: [:random_quote]
   before_action :set_source_quote, only: [:show, :update, :destroy]
 
   # GET /sources/:source_id/quotes
@@ -33,7 +33,8 @@ class QuotesController < ApplicationController
   # GET /random/quote
   def random_quote
     # mysql
-    # Quote.limit(5).order("RAND()")
+    quote = Quote.limit(1).order(Arel.sql('RAND()'))
+    json_response(quote)
   end
 
   private

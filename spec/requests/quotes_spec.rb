@@ -124,4 +124,18 @@ RSpec.describe 'Quotes API' do
       expect(response).to have_http_status(204)
     end
   end
+
+  # Test suit for random /random/quotes
+  describe 'GET /random/quote' do
+    before { get '/random/quote' }
+
+    context 'when random quote exists' do
+      it 'returns status code 200' do
+        expect(response).to have_http_status(200)
+      end
+      it 'returns a single quote' do
+        expect(json.size).to eq(1)
+      end
+    end
+  end
 end

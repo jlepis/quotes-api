@@ -44,7 +44,7 @@ Layout/SpaceInsideArrayLiteralBrackets:
 # Configuration parameters: CountComments, ExcludedMethods.
 # ExcludedMethods: refine
 Metrics/BlockLength:
-  Max: 90
+  Max: 120
 
 # Offense count: 1
 # Cop supports --auto-correct.
