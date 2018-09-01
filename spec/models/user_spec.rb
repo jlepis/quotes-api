@@ -1,7 +1,5 @@
 require 'rails_helper'
 
-require 'rails_helper'
-
 # Test suite for User model
 RSpec.describe User, type: :model do
   # Association test
