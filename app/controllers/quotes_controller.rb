@@ -1,4 +1,4 @@
-class QuotesController < ApplicationController
+class QuotesController < ApiController
   skip_before_action :authorize_request, only: :random_quote
   before_action :set_source, except: [:random_quote]
   before_action :set_source_quote, only: [:show, :update, :destroy]
