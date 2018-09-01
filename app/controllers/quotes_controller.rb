@@ -34,7 +34,7 @@ class QuotesController < ApplicationController
   # GET /random/quote
   def random_quote
     # mysql
-    quote = Quote.limit(1).order(Arel.sql('RAND()'))
+    quote = Quote.joins(:source).select("quotes.id, author, quote, title").limit(1).order(Arel.sql('RAND()'))
     json_response(quote)
   end
 
