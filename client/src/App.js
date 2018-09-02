@@ -1,5 +1,7 @@
 import React, { Component} from "react";
 import {hot} from "react-hot-loader";
+import { Container, Button, Divider, Loader, Dimmer } from 'semantic-ui-react'
+
 import "./index.css";
 
 class App extends Component{
@@ -11,7 +13,13 @@ class App extends Component{
       author: "",
       title: ""
     };
+    // bindings
     this.getRandomQuote = this.getRandomQuote.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.getRandomQuote();
   }
 
   componentDidMount() {
@@ -39,15 +47,24 @@ class App extends Component{
   }
 
   render(){
-    return(
-      <div className="App">
-        <div className="container">
-          <blockquote>{this.state.quote}</blockquote>
-           <div className="source">{this.state.author}</div>
-           <div className="source title">{this.state.title}</div>
+    let {quote,author,title} = this.state;
+    return quote
+      ? <Container>
+        <div className="App">
+          <div className="container">
+            <blockquote>{quote}</blockquote>
+             <div className="source">{author}</div>
+             <div className="source title">{title}</div>
+          </div>
+          <Divider />
+          <Button basic size='big' color='gray' onClick={this.handleClick}>New Quote</Button>
         </div>
-      </div>
-    );
+      </Container>
+      : <Container text>
+        <Dimmer active inverted>
+          <Loader content='Loading' />
+        </Dimmer>
+      </Container>
   }
 }
 
