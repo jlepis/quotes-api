@@ -47,3 +47,14 @@ blockquote:before {
 blockquote p {
   display: inline;
 }
+
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 95%;
+    margin: 0 auto;
+  }
+  blockquote {
+    font-size: 1em;
+    line-height: 1.3em;
+  }
+}
