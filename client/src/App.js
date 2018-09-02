@@ -1,29 +1,41 @@
 import React, { Component} from "react";
-import axios from "axios";
 import {hot} from "react-hot-loader";
 import "./index.css";
 
 class App extends Component{
 
-  state = {
-    quote: "hello world",
-    author: "Cervantes",
-    title: "Don Quixote"
+  constructor () {
+    super();
+    this.state = {
+      quote: "hello world",
+      author: "Cervantes",
+      title: "Don Quixote"
+    };
+    this.getRandomQuote = this.getRandomQuote.bind(this);
   }
+
   componentDidMount() {
-    axios
-      .get("http://localhost:3001/random/quote",  { crossdomain: true })
-      .then(response => {
-        // create a new "State" object without mutating
-        // the original State object.
-        const newState = Object.assign({}, this.state, {
-          quote: response.data[0].quote,
-          author: response.data[0].author,
-          title: response.data[0].title
-        });
-        this.setState(newState);
+    this.getRandomQuote();
+  }
+
+  fetch (endpoint) {
+    return window.fetch(endpoint)
+      .then(response => response.json())
+      .catch(error => console.log(error))
+  }
+
+  getRandomQuote() {
+    this.fetch('/random/quote')
+      .then(data => {
+        if(data.length) {
+          const newState = Object.assign({}, this.state, {
+            quote: data[0].quote,
+            author: data[0].author,
+            title: data[0].title
+          });
+          this.setState(newState);
+        }
       })
-      .catch(error => console.log(error));
   }
 
   render(){
