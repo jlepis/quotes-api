@@ -7,9 +7,9 @@ class App extends Component{
   constructor () {
     super();
     this.state = {
-      quote: "hello world",
-      author: "Cervantes",
-      title: "Don Quixote"
+      quote: "",
+      author: "",
+      title: ""
     };
     this.getRandomQuote = this.getRandomQuote.bind(this);
   }
