@@ -1,6 +1,6 @@
 import React, { Component} from "react";
 import {hot} from "react-hot-loader";
-import { Container, Button, Divider, Loader, Dimmer } from 'semantic-ui-react'
+import { Container, Button, Divider, Loader, Dimmer, Icon } from 'semantic-ui-react'
 
 import "./index.css";
 
@@ -57,7 +57,17 @@ class App extends Component{
              <div className="source title">{title}</div>
           </div>
           <Divider />
-          <Button basic size='big' color='gray' onClick={this.handleClick}>New Quote</Button>
+          <Icon.Group size='big'>
+            <Button basic size='big' color='gray' onClick={this.handleClick} title="Refresh quote">
+              <Icon name='refresh' size='large' fitted />
+            </Button>
+            <Button basic size='big' color='gray' title="Copy quote">
+              <Icon name='copy' size='large' fitted />
+            </Button>
+            <Button basic size='big' color='gray' title="Email quote">
+              <Icon name='share alternate' size='large' fitted />
+            </Button>
+          </Icon.Group>
         </div>
       </Container>
       : <Container text>
