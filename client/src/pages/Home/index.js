@@ -2,10 +2,7 @@ import React, { Component} from "react";
 import {hot} from "react-hot-loader";
 import { Container, Button, Divider, Loader, Dimmer, Icon } from 'semantic-ui-react';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
-
-import "./index.css";
-
-
+import StatusMessage from '../../components/StatusMessage';
 
 class HomePage extends Component{
 
@@ -20,7 +17,7 @@ class HomePage extends Component{
     // bindings
     this.getRandomQuote = this.getRandomQuote.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    // this.CopyToClipboard = this.CopyToClipboard.bind(this);
+    this.CopyToClipboard = this.CopyToClipboard.bind(this);
   }
 
   handleClick() {
@@ -29,8 +26,6 @@ class HomePage extends Component{
 
   CopyToClipboard() {
     this.setState({copied: true});
-    // issue alert message?
-    // console.log("Copied!");
   }
 
   componentDidMount() {
@@ -50,7 +45,8 @@ class HomePage extends Component{
           const newState = Object.assign({}, this.state, {
             quote: data[0].quote,
             author: data[0].author,
-            title: data[0].title
+            title: data[0].title,
+            copied: false
           });
           this.setState(newState);
         }
@@ -69,21 +65,20 @@ class HomePage extends Component{
           </div>
           <Divider />
           <Icon.Group size='big'>
-            <Button basic size='big' color='gray' onClick={this.handleClick} title="Refresh quote">
+            <Button basic size='big' color='grey' onClick={this.handleClick} title="Refresh quote">
               <Icon name='refresh' size='large' fitted />
             </Button>
             <CopyToClipboard text={this.state.quote}
               onCopy={() => this.CopyToClipboard()}>
-              <Button basic size='big' color='gray' title="Copy quote">
+              <Button basic size='big' color='grey' title="Copy quote">
                 <Icon name='copy' size='large' fitted />
               </Button>
             </CopyToClipboard>
-
-            <Button basic size='big' color='gray' title="Email quote">
+            <Button basic size='big' color='grey' title="Email quote">
               <Icon name='share alternate' size='large' fitted />
             </Button>
           </Icon.Group>
-          <Message />
+          <StatusMessage copied={this.state.copied}/>
         </div>
       </Container>
       : <Container text>
@@ -94,4 +89,4 @@ class HomePage extends Component{
   }
 }
 
-export default HomePage;
+export default hot(module)(HomePage);
