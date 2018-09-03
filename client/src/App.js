@@ -1,6 +1,7 @@
 import React, { Component} from "react";
 import {hot} from "react-hot-loader";
-import { Container, Button, Divider, Loader, Dimmer, Icon } from 'semantic-ui-react'
+import { Container, Button, Divider, Loader, Dimmer, Icon } from 'semantic-ui-react';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 import "./index.css";
 
@@ -11,15 +12,23 @@ class App extends Component{
     this.state = {
       quote: "",
       author: "",
-      title: ""
+      title: "",
+      copied: false
     };
     // bindings
     this.getRandomQuote = this.getRandomQuote.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    // this.CopyToClipboard = this.CopyToClipboard.bind(this);
   }
 
   handleClick() {
     this.getRandomQuote();
+  }
+
+  CopyToClipboard() {
+    this.setState({copied: true});
+    // issue alert message?
+    // console.log("Copied!");
   }
 
   componentDidMount() {
@@ -61,13 +70,18 @@ class App extends Component{
             <Button basic size='big' color='gray' onClick={this.handleClick} title="Refresh quote">
               <Icon name='refresh' size='large' fitted />
             </Button>
-            <Button basic size='big' color='gray' title="Copy quote">
-              <Icon name='copy' size='large' fitted />
-            </Button>
+            <CopyToClipboard text={this.state.quote}
+              onCopy={() => this.CopyToClipboard()}>
+              <Button basic size='big' color='gray' title="Copy quote">
+                <Icon name='copy' size='large' fitted />
+              </Button>
+            </CopyToClipboard>
+
             <Button basic size='big' color='gray' title="Email quote">
               <Icon name='share alternate' size='large' fitted />
             </Button>
           </Icon.Group>
+
         </div>
       </Container>
       : <Container text>
