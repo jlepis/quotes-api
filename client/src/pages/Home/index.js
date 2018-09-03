@@ -1,26 +1,13 @@
 import React, { Component} from "react";
 import {hot} from "react-hot-loader";
-import { Container, Button, Divider, Loader, Dimmer, Icon, Message } from 'semantic-ui-react';
+import { Container, Button, Divider, Loader, Dimmer, Icon } from 'semantic-ui-react';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 import "./index.css";
 
-function StatusMessage(object) {
-  // console.log(object);
-    // let visible = (ref.props || {}).visible || false;
-    let visible = (object.object.state || {}).copied || false;
 
-    // return null;
-    return visible
-    ? <Message
-        onDismiss={object.object.handleDismiss}
-        header='Cool!'
-        content='The quote has been copied to your clipboard.'
-      />
-    : ""
-  }
 
-class App extends Component{
+class HomePage extends Component{
 
   constructor () {
     super();
@@ -33,17 +20,12 @@ class App extends Component{
     // bindings
     this.getRandomQuote = this.getRandomQuote.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.CopyToClipboard = this.CopyToClipboard.bind(this);
-    this.handleDismiss = this.handleDismiss.bind(this);
+    // this.CopyToClipboard = this.CopyToClipboard.bind(this);
   }
 
   handleClick() {
     this.getRandomQuote();
   }
-
-  handleDismiss = () => {
-   this.setState({ copied: false })
- }
 
   CopyToClipboard() {
     this.setState({copied: true});
@@ -68,15 +50,12 @@ class App extends Component{
           const newState = Object.assign({}, this.state, {
             quote: data[0].quote,
             author: data[0].author,
-            title: data[0].title,
-            copied: false
+            title: data[0].title
           });
           this.setState(newState);
         }
       })
   }
-
-
 
   render(){
     let {quote,author,title} = this.state;
@@ -90,21 +69,21 @@ class App extends Component{
           </div>
           <Divider />
           <Icon.Group size='big'>
-            <Button basic size='big' color='grey' onClick={this.handleClick} title="Refresh quote">
+            <Button basic size='big' color='gray' onClick={this.handleClick} title="Refresh quote">
               <Icon name='refresh' size='large' fitted />
             </Button>
             <CopyToClipboard text={this.state.quote}
               onCopy={() => this.CopyToClipboard()}>
-              <Button basic size='big' color='grey' title="Copy quote">
+              <Button basic size='big' color='gray' title="Copy quote">
                 <Icon name='copy' size='large' fitted />
               </Button>
             </CopyToClipboard>
 
-            <Button basic size='big' color='grey' title="Email quote">
+            <Button basic size='big' color='gray' title="Email quote">
               <Icon name='share alternate' size='large' fitted />
             </Button>
           </Icon.Group>
-          <StatusMessage object={this}/>
+          <Message />
         </div>
       </Container>
       : <Container text>
@@ -115,4 +94,4 @@ class App extends Component{
   }
 }
 
-export default hot(module)(App);
+export default HomePage;
