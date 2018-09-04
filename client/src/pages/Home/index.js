@@ -8,42 +8,31 @@ import { Container, Button, Divider, Loader, Dimmer, Icon } from 'semantic-ui-re
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import StatusMessage from '../../components/StatusMessage';
 
-import {NotificationContainer, NotificationManager} from 'react-notifications';
-
 class HomePage extends Component{
 
   constructor () {
     super();
-    // this.state = {
-    //   quote: "",
-    //   author: "",
-    //   title: "",
-    //   copied: false
-    // };
+
     // bindings
-    this.handleClick = this.handleClick.bind(this);
+    this.refreshQuote = this.refreshQuote.bind(this);
     this.CopyToClipboard = this.CopyToClipboard.bind(this);
   }
 
-  handleClick() {
+  refreshQuote() {
     this.props.quoteActions.fetchQuote();
   }
 
   CopyToClipboard() {
-    return this.props.quoteActions.copiedQuote();
+    this.props.quoteActions.copyQuote(true);
   }
 
   componentDidMount() {
    this.props.quoteActions.fetchQuote();
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
-  }
-
   render(){
     let {quote,author,title} = (this.props || {}).quote;
-    let copied = (quote || {}).copyquote || false;
+    let copied = this.props.copyquote;
 
     return quote
       ? <Container>
@@ -55,7 +44,7 @@ class HomePage extends Component{
           </div>
           <Divider />
           <Icon.Group size='big'>
-            <Button basic size='big' color='grey' onClick={this.handleClick} title="Refresh quote">
+            <Button basic size='big' color='grey' onClick={this.refreshQuote} title="Refresh quote">
               <Icon name='refresh' size='large' fitted />
             </Button>
             <CopyToClipboard text={quote}
@@ -68,6 +57,7 @@ class HomePage extends Component{
               <Icon name='share alternate' size='large' fitted />
             </Button>
           </Icon.Group>
+          <StatusMessage visible={copied}/>
         </div>
       </Container>
       : <Container text>
@@ -86,9 +76,8 @@ HomePage.propTypes = {
 
 function mapStateToProps(state) {
   const quote = state.quote || {};
-  const copyquote = (quote.copyquote || {}).copyquote || false;
-  console.log("index::copyquote")
-  console.log(copyquote);
+  const copyquote = quote.copyquote || false;
+  
   return {
     quote,
     copyquote

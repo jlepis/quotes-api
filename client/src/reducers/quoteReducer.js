@@ -15,9 +15,8 @@ export default function quote(state = initialState.quote, action) {
       return newState;
     case COPY_QUOTE:
       console.log(action);
-      // we dont want to blow away existing state. so add to it.
-      newState = Object.assign(state, {copyquote: action.copyquote});
-      console.log(newState);
+      // we dont want to blow away previous state or mutate it. 
+      newState = Object.assign({}, state, {copyquote: action.copyquote})
       return newState;
     default:
       return state;
