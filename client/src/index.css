@@ -1,6 +1,20 @@
 .App {
+  flex: 1;
   margin: 1rem;
+  min-height: 80vh;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.page__wrapper {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+.footer {
+  flex: none;
+  height: 50px;
+  border: 1px black solid;
 }
 
 .container {
