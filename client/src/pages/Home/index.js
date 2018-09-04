@@ -78,7 +78,7 @@ class HomePage extends Component{
               <Icon name='share alternate' size='large' fitted />
             </Button>
           </Icon.Group>
-          <StatusMessage copied={this.state.copied}/>
+          <StatusMessage />
         </div>
       </Container>
       : <Container text>

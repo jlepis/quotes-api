@@ -5,14 +5,14 @@
 
 .container {
   /* border: 1px #ccc solid; */
-  width: 50%;
+  width: 70%;
   margin: 0 auto;
   text-align: center;
 }
 
 blockquote {
   /* background: #f9f9f9; */
-  /* border-left: 10px solid #ccc; */
+  border-left: 10px solid #ccc;
   margin: 1.5em 10px;
   margin-bottom: 5px;
   padding: 0.5em 10px;
