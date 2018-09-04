@@ -21,7 +21,6 @@ class StatusMessage extends Component {
    render() {
      let visible = this.state.copied || false;
 
-     console.log("visible: " + visible);
      return visible
      ? <Transition visible={visible} animation='scale' duration={200}>
         <Message
