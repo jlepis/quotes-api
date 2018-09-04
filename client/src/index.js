@@ -5,6 +5,7 @@ import configureStore from './store/configureStore';
 import { Provider } from 'react-redux';
 import 'semantic-ui-css/semantic.css'
 import './index.css';
+import 'react-notifications/lib/notifications.css';
 
 const store = configureStore();
 

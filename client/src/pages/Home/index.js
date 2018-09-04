@@ -8,6 +8,8 @@ import { Container, Button, Divider, Loader, Dimmer, Icon } from 'semantic-ui-re
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import StatusMessage from '../../components/StatusMessage';
 
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+
 class HomePage extends Component{
 
   constructor () {
@@ -19,53 +21,29 @@ class HomePage extends Component{
     //   copied: false
     // };
     // bindings
-    // this.getRandomQuote = this.getRandomQuote.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.CopyToClipboard = this.CopyToClipboard.bind(this);
   }
-
-  // componentWillMount() { // HERE WE ARE TRIGGERING THE ACTION
-  //   // loads it into state
-  //    this.props.quoteActions.fetchQuote();
-  //  }
 
   handleClick() {
     this.props.quoteActions.fetchQuote();
   }
 
   CopyToClipboard() {
-    this.setState({copied: true});
+    return this.props.quoteActions.copiedQuote();
   }
 
   componentDidMount() {
    this.props.quoteActions.fetchQuote();
-   console.log("After getting quote");
-   console.log(this.props);
   }
 
-  // fetch (endpoint) {
-  //   return window.fetch(endpoint)
-  //     .then(response => response.json())
-  //     .catch(error => console.log(error))
-  // }
-  //
-  // getRandomQuote() {
-  //   this.fetch('/random/quote')
-  //     .then(data => {
-  //       if(data.length) {
-  //         const newState = Object.assign({}, this.state, {
-  //           quote: data[0].quote,
-  //           author: data[0].author,
-  //           title: data[0].title,
-  //           copied: false
-  //         });
-  //         this.setState(newState);
-  //       }
-  //     })
-  // }
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
+  }
 
   render(){
     let {quote,author,title} = (this.props || {}).quote;
+    let copied = (quote || {}).copyquote || false;
 
     return quote
       ? <Container>
@@ -90,7 +68,6 @@ class HomePage extends Component{
               <Icon name='share alternate' size='large' fitted />
             </Button>
           </Icon.Group>
-          <StatusMessage />
         </div>
       </Container>
       : <Container text>
@@ -103,13 +80,18 @@ class HomePage extends Component{
 
 HomePage.propTypes = {
   quoteActions: PropTypes.object,
-  quote: PropTypes.object
+  quote: PropTypes.object,
+  copyquote: PropTypes.string
 };
 
 function mapStateToProps(state) {
   const quote = state.quote || {};
+  const copyquote = (quote.copyquote || {}).copyquote || false;
+  console.log("index::copyquote")
+  console.log(copyquote);
   return {
-    quote: quote
+    quote,
+    copyquote
   };
 }
 

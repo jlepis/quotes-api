@@ -1,5 +1,15 @@
 import * as types from './actionTypes';
 
+export function copiedQuote() {
+  return {type: types.COPY_QUOTE, copyquote: true};
+}
+
+export function copyQuote() {
+  return dispatch => {
+    dispatch(copiedQuote())
+  }
+}
+
 export function receiveQuote(json) {
   // TODO - check response?
   return {type: types.RECEIVE_QUOTE, quote: json[0]};

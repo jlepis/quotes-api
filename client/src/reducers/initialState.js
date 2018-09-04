@@ -1,3 +1,4 @@
 export default {
-  quote: {}
+  quote: {},
+  copy: false
 };
