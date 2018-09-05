@@ -1,4 +1,5 @@
 import React, { Component} from "react";
+import { Link } from 'react-router-dom';
 import { Container, Menu } from 'semantic-ui-react';
 
 class Footer extends Component {
@@ -8,8 +9,12 @@ class Footer extends Component {
         <Menu fixed='bottom' inverted>
           <Container>
             <Menu.Menu position="right">
-              <Menu.Item as='a'>Home</Menu.Item>
-              <Menu.Item as='a'>About</Menu.Item>
+              <Menu.Item as='a' >
+                <Link to="/">Home</Link>
+              </Menu.Item>
+              <Menu.Item as='a' >
+                <Link to="/about">About</Link>
+              </Menu.Item>
             </Menu.Menu>
           </Container>
         </Menu>
