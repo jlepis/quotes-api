@@ -11,26 +11,30 @@ import {
   Segment,
 } from 'semantic-ui-react'
 
+import './about.css';
+
 class About extends Component{
   render(){
     return(
-      <div>
+      <div className="mainContainer">
 
-     <Container text style={{ marginTop: '3em' }}>
+     <Container text>
        <Header as='h1'>Random Quote Generator</Header>
-       <p style={{ fontSize: '1.25em' }}>Funny glib quotes from pop culture. Check. A full stack solution built with the latest buzzwords. Check. Completely over-engineered fun. Check. </p>
+       <p className="leadIn">Funny glib quotes from pop culture. Check. A full stack solution built with the latest buzzwords. Check. Completely over-engineered fun. Check. </p>
 
-       <Segment style={{ padding: '2em 0em' }} vertical>
-      <Grid container stackable verticalAlign='middle'>
+      <Segment className="segment" vertical>
+      <Grid container stackable>
         <Grid.Row>
           <Grid.Column width={8}>
-            <Header as='h3' style={{ fontSize: '1.35em' }}>
+            <Header as='h3'>
               API
             </Header>
             <p>
               Through a <a href="https://rubyonrails.org/" target="_blank">Rails5</a> API only app, we serve up the sharpest quotes around. With <a href="https://activeadmin.info/" target="_blank">Active Admin</a> bolted on, we're able to swiftly add quotes to satisfy even the most demanding visitor.
             </p>
-            <Header as='h3' style={{ fontSize: '1.35em' }}>
+            <p>Since we don't like bugs, we're using <a href="http://rspec.info/">RSpec</a>. And since we don't like code smell,
+            we're using <a href="https://github.com/rubocop-hq/rubocop" target="_blank">rubocop</a>.</p>
+            <Header as='h3'>
               Front End
             </Header>
             <p>
