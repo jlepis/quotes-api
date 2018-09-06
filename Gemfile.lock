@@ -153,6 +153,7 @@ GEM
     minitest (5.11.3)
     msgpack (1.2.4)
     mysql2 (0.4.10)
+    newrelic_rpm (3.18.1.330)
     nio4r (2.3.1)
     nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
@@ -284,6 +285,7 @@ DEPENDENCIES
   jwt
   listen (>= 3.0.5, < 3.2)
   mysql2 (~> 0.4.4)
+  newrelic_rpm
   puma (~> 3.11)
   pundit
   rack-cors

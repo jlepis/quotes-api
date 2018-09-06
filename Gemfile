@@ -34,6 +34,8 @@ gem 'devise', '> 4.x'
 gem 'draper'
 gem 'pundit'
 
+gem 'newrelic_rpm'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
