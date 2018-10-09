@@ -15,6 +15,9 @@ class Footer extends Component {
               <Menu.Item as='a' >
                 <Link to="/about">About</Link>
               </Menu.Item>
+              <Menu.Item as='a' >
+                <Link to="//jcl-resume.com/" target="_blank">Resumé</Link>
+              </Menu.Item>
             </Menu.Menu>
           </Container>
         </Menu>
