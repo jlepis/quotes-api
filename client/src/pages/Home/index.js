@@ -4,7 +4,7 @@ import * as quoteActions from '../../actions/quoteActions';
 import PropTypes from 'prop-types';
 import React, { Component} from "react";
 // import {hot} from "react-hot-loader";
-import { Container, Button, Divider, Loader, Dimmer, Icon } from 'semantic-ui-react';
+import { Container, Button, Divider, Loader, Dimmer, Icon, Sidebar,Menu, Segment, Header, Image } from 'semantic-ui-react';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import StatusMessage from '../../components/StatusMessage';
 
@@ -37,27 +37,42 @@ class HomePage extends Component{
     return quote
       ? <Container>
         <div className="App">
-          <div className="container">
-            <blockquote>{quote}</blockquote>
-             <div className="source">{author}</div>
-             <div className="source title">{title}</div>
-          </div>
-          <Divider />
-          <Icon.Group size='big'>
-            <Button basic size='big' color='grey' onClick={this.refreshQuote} title="Refresh quote">
-              <Icon name='refresh' size='large' fitted />
-            </Button>
-            <CopyToClipboard text={quote}
-              onCopy={() => this.CopyToClipboard()}>
-              <Button basic size='big' color='grey' title="Copy quote">
-                <Icon name='copy' size='large' fitted />
+
+        <div class="ui container">
+        <Sidebar.Pushable as={Segment}>
+          <Sidebar
+            as={Menu}
+            icon='labeled'
+            vertical
+            visible
+            width='thin'
+            direction="right"
+          >
+            <Menu.Item as='a'>
+              <Button basic size='big' color='grey' onClick={this.refreshQuote} title="Refresh quote">
+                <Icon name='refresh' size='large' fitted />
               </Button>
-            </CopyToClipboard>
-            <Button basic size='big' color='grey' title="Email quote">
-              <Icon name='share alternate' size='large' fitted />
-            </Button>
-          </Icon.Group>
+            </Menu.Item>
+            <Menu.Item as='a'>
+              <CopyToClipboard text={quote}
+                onCopy={() => this.CopyToClipboard()}>
+                <Button basic size='big' color='grey' title="Copy quote">
+                  <Icon name='copy' size='large' fitted />
+                </Button>
+              </CopyToClipboard>
+            </Menu.Item>
+          </Sidebar>
+
+            <Segment basic>
+              <div className="container">
+                <blockquote>{quote}</blockquote>
+                 <div className="source">{author}</div>
+                 <div className="source title">{title}</div>
+              </div>
+            </Segment>
+            </Sidebar.Pushable>
           <StatusMessage visible={copied}/>
+        </div>
         </div>
       </Container>
       : <Container text>
@@ -77,7 +92,7 @@ HomePage.propTypes = {
 function mapStateToProps(state) {
   const quote = state.quote || {};
   const copyquote = quote.copyquote || false;
-  
+
   return {
     quote,
     copyquote
