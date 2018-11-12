@@ -1,13 +1,9 @@
 import React, { Component} from "react";
 import {
   Container,
-  Divider,
-  Dropdown,
   Grid,
   Header,
   Image,
-  List,
-  Menu,
   Segment,
 } from 'semantic-ui-react'
 
@@ -30,18 +26,18 @@ class About extends Component{
               API
             </Header>
             <p>
-              Through a <a href="https://rubyonrails.org/" target="_blank">Rails5</a> API only app, we serve up the sharpest quotes around. With <a href="https://activeadmin.info/" target="_blank">Active Admin</a> bolted on, we're able to swiftly add quotes to satisfy even the most demanding visitor.
+              Through a <a href="https://rubyonrails.org/" target="_blank" rel="noopener noreferrer">Rails5</a> API only app, we serve up the sharpest quotes around. With <a href="https://activeadmin.info/" target="_blank" rel="noopener noreferrer">Active Admin</a> bolted on, we're able to swiftly add quotes to satisfy even the most demanding visitor.
             </p>
             <p>Since we don't like bugs, we're using <a href="http://rspec.info/">RSpec</a>. And since we don't like code smell,
-            we're using <a href="https://github.com/rubocop-hq/rubocop" target="_blank">rubocop</a>.</p>
+            we're using <a href="https://github.com/rubocop-hq/rubocop" target="_blank" rel="noopener noreferrer">rubocop</a>.</p>
             <Header as='h3'>
               Front End
             </Header>
             <p>
-              Yes thats right, you thought this was the stuff of magic, but it's just <a href="https://reactjs.org/" target="_blank">React</a> with a bit of <a href="https://redux.js.org/">Redux</a> sprinkled in for fun and to help manage application state.
+              Yes thats right, you thought this was the stuff of magic, but it's just <a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">React</a> with a bit of <a href="https://redux.js.org/">Redux</a> sprinkled in for fun and to help manage application state.
               You can copy a quote to your clipboard or share it with a friend. What more could you ask for?
             </p>
-            <p>We're using <a href="https://react.semantic-ui.com/" target="_blank">Semantic UI React</a> and we're mobile friendly. It's the bees knees.</p>
+            <p>We're using <a href="https://react.semantic-ui.com/" target="_blank" rel="noopener noreferrer">Semantic UI React</a> and we're mobile friendly. It's the bees knees.</p>
           </Grid.Column>
           <Grid.Column floated='right' width={6}>
             <Image bordered rounded size='large' src='/images/white-image.png' />
