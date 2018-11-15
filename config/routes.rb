@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   end
   # random quote endpoint
   get 'random/quote', to: 'quotes#random_quote'
+
+  # quote endpoint to list all quotes
+  get 'quotes', to: 'quotes#list'
+
   # authentication action
   post 'auth/login', to: 'authentication#authenticate'
   # signup
