@@ -9,13 +9,13 @@ class Footer extends Component {
         <Menu fixed='bottom' inverted>
           <Container>
             <Menu.Menu position="right">
-              <Menu.Item as='a' >
+              <Menu.Item >
                 <Link to="/">Home</Link>
               </Menu.Item>
-              <Menu.Item as='a' >
+              <Menu.Item>
                 <Link to="/about">About</Link>
               </Menu.Item>
-              <Menu.Item as='a' >
+              <Menu.Item>
                 <a href="http://jcl-resume.com/" target="_blank" rel="noopener noreferrer">Resumé</a>
               </Menu.Item>
             </Menu.Menu>

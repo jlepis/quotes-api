@@ -6,7 +6,7 @@ class QuoteItem extends Component {
   render() {
     return (
        <List.Item>
-        <List.Header as='a'>{this.props.quote.author}</List.Header>
+        <List.Header>{this.props.quote.author}</List.Header>
         <List.Description>
           {this.props.quote.quote}
         </List.Description>

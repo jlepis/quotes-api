@@ -3,6 +3,7 @@ import {bindActionCreators} from 'redux';
 import * as quoteActions from '../../actions/quoteActions';
 import PropTypes from 'prop-types';
 import React, { Component} from "react";
+import { Link } from 'react-router-dom'
 // import {hot} from "react-hot-loader";
 import { Container,
             Button,
@@ -44,8 +45,7 @@ class HomePage extends Component{
     return quote
       ? <Container>
         <div className="App">
-
-        <div class="ui container">
+        <div className="ui container">
         <Sidebar.Pushable as={Segment}>
           <Sidebar
             as={Menu}
@@ -67,6 +67,11 @@ class HomePage extends Component{
                   <Icon name='copy' size='large' fitted />
                 </Button>
               </CopyToClipboard>
+            </Menu.Item>
+            <Menu.Item as={Link} to='/list'>
+              <Button basic size='big' color='grey' title="List Quotes">
+                <Icon name='list' size='large' fitted />
+              </Button>
             </Menu.Item>
           </Sidebar>
 
@@ -98,7 +103,7 @@ HomePage.propTypes = {
 
 function mapStateToProps(state) {
   const quote = state.quote || {};
-  const copyquote = quote.copyquote || false;
+  const copyquote = quote.copyquote || "";
 
   return {
     quote,

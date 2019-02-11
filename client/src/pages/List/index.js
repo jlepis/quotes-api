@@ -6,14 +6,10 @@ import {bindActionCreators} from 'redux';
 import QuoteList from './QuoteList';
 
 import {
-  Container,
   Header,
-  Segment
 } from 'semantic-ui-react'
 
-// const QuoteItem = ({quote}) => <li>{quote}</li>
-
-class List extends Component{
+class QuoteListView extends Component{
   constructor () {
     super();
 
@@ -31,33 +27,23 @@ class List extends Component{
   }
 
   render(){
-    const quoteList = this.props.quotes;
-    const showResults = "";
-    if(quoteList && quoteList.length > 0 ){
-      console.log(quoteList);
-      quoteList.map(function(item){
-        return <li>{item.quote}</li>;
-      });
-    }
-
     return(
       <div>
-        <Header as='h1'>Quotes</Header>
+      <Header as='h1'>Quotes</Header>
         <QuoteList quotes={this.props.quotes} />
       </div>
     );
   }
 }
 
-List.propTypes = {
+QuoteListView.propTypes = {
   quoteActions: PropTypes.object,
   quotes: PropTypes.array
 };
 
 function mapStateToProps(state) {
-  // TODO - fix reducer so this reads state.quotes
-  const quotes = state.quote || [];
-  // console.log(quotes);
+  let quotes = state.quotes || [];
+
   return {
     quotes
   };
@@ -72,4 +58,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(List);
+)(QuoteListView);

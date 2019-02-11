@@ -17,7 +17,7 @@ export default function quote(state = initialState.quote, action) {
       if(action.quotes) {
         newState = action.quotes;
       } else {
-        newState = newState;
+        newState = state;
       }
       return newState;
     case COPY_QUOTE:

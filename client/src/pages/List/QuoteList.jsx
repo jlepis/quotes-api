@@ -9,16 +9,12 @@ export default class QuoteList extends Component {
     this.getQuotes = this.getQuotes.bind(this);
   }
   getQuotes() {
-    console.log(this.props.quotes);
     if(this.props.quotes && this.props.quotes.length > 0 ) {
       return this.props.quotes.map((quote) => {
-        // let key = option[this.props.idField];
-        // let props = Object.assign({key: `${this.props.idField}-${key}`}, {option});
-        // return React.createElement(this.props.component, props);
-        return <QuoteItem quote={quote} />
+        return <QuoteItem key={quote.id} quote={quote} />
       });
     } else {
-      return;
+      return [];
     }
   }
 
