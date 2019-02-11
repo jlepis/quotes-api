@@ -4,6 +4,13 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import QuoteList from './QuoteList';
+import { Link } from 'react-router-dom'
+import { Container,
+           Segment,
+           Sidebar,
+              Menu,
+            Button,
+              Icon } from 'semantic-ui-react';
 
 import {
   Header,
@@ -28,10 +35,32 @@ class QuoteListView extends Component{
 
   render(){
     return(
-      <div>
-      <Header as='h1'>Quotes</Header>
-        <QuoteList quotes={this.props.quotes} />
+      <Container>
+      <div className="App">
+        <div className="ui container">
+          <Sidebar.Pushable as={Segment}>
+          <Sidebar
+            as={Menu}
+            icon='labeled'
+            visible
+            width='thin'
+            direction="top"
+          >
+            <Menu.Item as={Link} to='/'>
+              <Button basic size='big' color='grey' title="Home">
+                <Icon name='home' size='large' fitted />
+              </Button>
+            </Menu.Item>
+          </Sidebar>
+          <Segment basic>
+            <div className="container quotelist">
+              <QuoteList quotes={this.props.quotes} />
+            </div>
+          </Segment>
+          </Sidebar.Pushable>
+        </div>
       </div>
+      </Container>
     );
   }
 }
