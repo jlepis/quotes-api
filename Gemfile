@@ -48,6 +48,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'rubocop-rspec'
   gem 'rubocop', '~> 0.58.2', require: false
+  gem 'brakeman'
+  gem 'rails_best_practices'
 end
 
 group :development do
