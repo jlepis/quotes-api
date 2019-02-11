@@ -5,11 +5,12 @@ class QuoteItem extends Component {
 
   render() {
     return (
-       <List.Item>
-        <List.Header>{this.props.quote.author}</List.Header>
+       <List.Item className="quoteItem">
         <List.Description>
-          {this.props.quote.quote}
+          <blockquote>{this.props.quote.quote}</blockquote>
         </List.Description>
+        <div className="source">{this.props.quote.author}</div>
+        <div className="source title">{this.props.quote.title}</div>
        </List.Item>
     )
   }

@@ -24,6 +24,10 @@
   text-align: center;
 }
 
+.quotelist {
+  margin-top: 50px;
+}
+
 blockquote {
   /* background: #f9f9f9; */
   border-left: 10px solid #ccc;
@@ -33,6 +37,26 @@ blockquote {
   quotes: "\201C""\201D""\2018""\2019";
   font-size: 2em;
   line-height: 1.3em;
+}
+
+.quoteItem blockquote {
+  border-left: 7px solid #ccc;
+  margin: 1.5em 10px;
+  margin-bottom: 5px;
+  padding: 0.5em 7px;
+  quotes: "\201C""\201D""\2018""\2019";
+  font-size: 1.5em;
+  line-height: 1.3em;
+  text-align: left;
+}
+
+.quoteItem blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 3em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
 }
 
 .source {
