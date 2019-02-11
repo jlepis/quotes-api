@@ -18,7 +18,7 @@ module ExceptionHandler
       json_response({ message: e.message }, :not_found)
     end
   end
-  
+
   private
 
   # JSON response with message; Status code 422 - unprocessable entity
