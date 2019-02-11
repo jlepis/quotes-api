@@ -1,6 +1,6 @@
 class QuotesController < ApiController
-  skip_before_action :authorize_request, only: :random_quote
-  before_action :set_source, except: [:random_quote]
+  skip_before_action :authorize_request, only: [:random_quote, :list]
+  before_action :set_source, except: [:random_quote, :list]
   before_action :set_source_quote, only: [:show, :update, :destroy]
 
   # GET /sources/:source_id/quotes
@@ -36,6 +36,13 @@ class QuotesController < ApiController
     # mysql
     quote = Quote.joins(:source).select("quotes.id, author, quote, title").limit(1).order(Arel.sql('RAND()'))
     json_response(quote)
+  end
+
+  # GET /quotes
+  def list
+    # TODO refine query in future when we have publishing flags or maybe not.
+    quotes = Quote.all
+    json_response(quotes)
   end
 
   private

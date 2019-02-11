@@ -15,11 +15,25 @@ export function receiveQuote(json) {
   return {type: types.RECEIVE_QUOTE, quote: json[0]};
 }
 
+export function receiveAllQuotes(json) {
+  // TODO - check response?
+  return {type: types.RECEIVE_ALL_QUOTES, quotes: json};
+}
+
+// TODO - refactor API interaction methods.
 // TODO - check response length?
 export function fetchQuote() {
   return dispatch => {
     return fetch('/random/quote')
     .then(response => response.json())
     .then(json => dispatch(receiveQuote(json)));
+  };
+}
+
+export function fetchQuotes() {
+  return dispatch => {
+    return fetch('/quotes')
+    .then(response => response.json())
+    .then(json => dispatch(receiveAllQuotes(json)));
   };
 }

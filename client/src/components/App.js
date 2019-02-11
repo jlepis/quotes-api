@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from '../pages/Home';
 import About from '../pages/About';
+import List from '../pages/List';
 import pkg from '../../package.json';
 import Footer from './Footer';
 import DocumentTitle from 'react-document-title';
@@ -18,6 +19,7 @@ const App = () => (
             <Switch>
               <Route path="/" exact component={Home}/>
               <Route path="/About" exact component={About}/>
+              <Route path="/List" exact component={List}/>
             </Switch>
           </div>
         </main>
