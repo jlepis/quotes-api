@@ -50,10 +50,9 @@ class HomePage extends Component{
           <Sidebar
             as={Menu}
             icon='labeled'
-            vertical
             visible
             width='thin'
-            direction="right"
+            direction="top"
           >
             <Menu.Item as='a'>
               <Button basic size='big' color='grey' onClick={this.refreshQuote} title="Refresh quote">
