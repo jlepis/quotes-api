@@ -28,8 +28,7 @@ class About extends Component{
             <p>
               Through a <a href="https://rubyonrails.org/" target="_blank" rel="noopener noreferrer">Rails5</a> API only app, we serve up the sharpest quotes around. With <a href="https://activeadmin.info/" target="_blank" rel="noopener noreferrer">Active Admin</a> bolted on, we're able to swiftly add quotes to satisfy even the most demanding visitor.
             </p>
-            <p>Since we don't like bugs, we're using <a href="http://rspec.info/">RSpec</a>. And since we don't like code smell,
-            we're using <a href="https://github.com/rubocop-hq/rubocop" target="_blank" rel="noopener noreferrer">rubocop</a>.</p>
+            <p>Since we don't like bugs, we're using <a href="http://rspec.info/">RSpec</a>. And since we don't like code smell, we're using <a href="https://github.com/rubocop-hq/rubocop" target="_blank" rel="noopener noreferrer">rubocop</a>, <a href="https://github.com/presidentbeef/brakeman" target="_blank" rel="noopener noreferrer">brakeman</a> and <a href="https://github.com/colszowka/simplecov" target="_blank" rel="noopener noreferrer">simplecov</a>.</p>
             <Header as='h3'>
               Front End
             </Header>
