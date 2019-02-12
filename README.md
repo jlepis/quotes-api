@@ -2,11 +2,15 @@
 
 * Starting local instance (both web and api)
 
-`rake start`
+`bundle exec rake start`
 
 * To run tests:
 
-`rails test`
+`bundle exec rspec`
+
+* Check code coverage
+
+`open coverage/index.html`
 
 * Verify Rails best practices:
 

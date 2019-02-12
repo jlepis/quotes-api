@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :quote do
-    quote { Faker::MichaelScott.quote }
-    author { Faker::StarWars.character}
+    quote { Faker::TvShows::MichaelScott.quote }
+    author { Faker::Movies::StarWars.character }
     source_id { nil }
   end
 end
