@@ -141,6 +141,8 @@ RSpec.describe 'Quotes API' do
         expect(response).to have_http_status(200)
       end
       it 'returns a single quote' do
+        # TODO - rename column name from quote 
+        # expect(response).to match_response_schema("quote")
         expect(json.size).to eq(1)
       end
     end

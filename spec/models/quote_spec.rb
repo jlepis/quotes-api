@@ -8,6 +8,17 @@ RSpec.describe Quote, type: :model do
   # Validation test
   # ensure column quote is present before saving
   it { should validate_presence_of(:quote) }
+
+  it "is not valid without a quote" do
+    quote = Quote.new(quote: nil)
+    expect(quote).to_not be_valid
+  end
+
   # ensure column author is present before saving
   it { should validate_presence_of(:author) }
+
+  it "is not valid without an author" do
+    quote = Quote.new(author: nil)
+    expect(quote).to_not be_valid
+  end
 end

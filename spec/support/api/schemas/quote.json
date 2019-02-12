@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "required": ["quote"],
+  "properties": {
+    "quote" : {
+      "type" : "object",
+      "required" : [
+        "author",
+        "quote"
+      ],
+      "properties" : {
+        "id" : { "type" : "integer" },
+        "quote" : { "type" : "string" },
+        "source_id": { "type": "integer" },
+        "author" : { "type" : "string" },
+        "created_at" : { "type" : "string", "format": "date-time" },
+        "updated_at" : { "type" : "string", "format": "date-time" }
+      }
+    }
+  }
+}
