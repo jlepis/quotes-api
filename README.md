@@ -19,3 +19,5 @@
 ## Run brakeman to find any security-related issues:
 
 `brakeman`
+
+## TODO - add prereqs
