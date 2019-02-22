@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'quotes#random_quote'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
