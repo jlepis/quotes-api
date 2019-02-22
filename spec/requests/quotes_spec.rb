@@ -10,9 +10,9 @@ RSpec.describe 'Quotes API' do
   let(:headers) { valid_headers }
 
 
-  # Test suite for GET /sources/:source_id/quotes
-  describe 'GET /sources/:source_id/quotes' do
-    before { get "/sources/#{source_id}/quotes", params: {}, headers: headers }
+  # Test suite for GET /api/sources/:source_id/quotes
+  describe 'GET /api/sources/:source_id/quotes' do
+    before { get "/api/sources/#{source_id}/quotes", params: {}, headers: headers }
 
     context 'when source exists' do
       it 'returns status code 200' do
@@ -37,9 +37,9 @@ RSpec.describe 'Quotes API' do
     end
   end
 
-  # Test suite for GET /sources/:source_id/quotes/:id
-  describe 'GET /sources/:source_id/quotes/:id' do
-    before { get "/sources/#{source_id}/quotes/#{id}", params: {}, headers: headers }
+  # Test suite for GET /api/sources/:source_id/quotes/:id
+  describe 'GET /api/sources/:source_id/quotes/:id' do
+    before { get "/api/sources/#{source_id}/quotes/#{id}", params: {}, headers: headers }
 
     context 'when source quote exists' do
       it 'returns status code 200' do
@@ -64,13 +64,13 @@ RSpec.describe 'Quotes API' do
     end
   end
 
-  # Test suite for PUT /sources/:source_id/quotes
-  describe 'POST /sources/:source_id/quotes' do
+  # Test suite for PUT /api/sources/:source_id/quotes
+  describe 'POST /api/sources/:source_id/quotes' do
     let(:valid_attributes) { { quote: 'Visit Narnia', author: "Dr. Seuss" }.to_json }
 
     context 'when request attributes are valid' do
       before do
-        post "/sources/#{source_id}/quotes", params: valid_attributes, headers: headers
+        post "/api/sources/#{source_id}/quotes", params: valid_attributes, headers: headers
       end
 
       it 'returns status code 201' do
@@ -79,7 +79,7 @@ RSpec.describe 'Quotes API' do
     end
 
     context 'when an invalid request' do
-      before { post "/sources/#{source_id}/quotes", params: {}, headers: headers }
+      before { post "/api/sources/#{source_id}/quotes", params: {}, headers: headers }
 
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
@@ -91,12 +91,12 @@ RSpec.describe 'Quotes API' do
     end
   end
 
-  # Test suite for PUT /sources/:source_id/quotes/:id
-  describe 'PUT /sources/:source_id/quotes/:id' do
+  # Test suite for PUT /api/sources/:source_id/quotes/:id
+  describe 'PUT /api/sources/:source_id/quotes/:id' do
     let(:valid_attributes) { { quote: 'Mozart' }.to_json }
 
     before do
-      put "/sources/#{source_id}/quotes/#{id}", params: valid_attributes, headers: headers
+      put "/api/sources/#{source_id}/quotes/#{id}", params: valid_attributes, headers: headers
     end
 
     context 'when quote exists' do
@@ -123,25 +123,25 @@ RSpec.describe 'Quotes API' do
     end
   end
 
-  # Test suite for DELETE /sources/:id
-  describe 'DELETE /sources/:id' do
-    before { delete "/sources/#{source_id}/quotes/#{id}", params: {}, headers: headers }
+  # Test suite for DELETE /api/sources/:id
+  describe 'DELETE /api/sources/:id' do
+    before { delete "/api/sources/#{source_id}/quotes/#{id}", params: {}, headers: headers }
 
     it 'returns status code 204' do
       expect(response).to have_http_status(204)
     end
   end
 
-  # Test suit for random /random/quotes
-  describe 'GET /random/quote' do
-    before { get '/random/quote' }
+  # Test suit for random /api/random/quotes
+  describe 'GET /api/random/quote' do
+    before { get '/api/random/quote' }
 
     context 'when random quote exists' do
       it 'returns status code 200' do
         expect(response).to have_http_status(200)
       end
       it 'returns a single quote' do
-        # TODO - rename column name from quote 
+        # TODO - rename column name from quote
         # expect(response).to match_response_schema("quote")
         expect(json.size).to eq(1)
       end
