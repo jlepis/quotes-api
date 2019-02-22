@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   scope '/api' do
 
-  resources :sources do
+    resources :sources do
       resources :quotes
     end
     # random quote endpoint
