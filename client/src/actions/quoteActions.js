@@ -20,11 +20,10 @@ export function receiveAllQuotes(json) {
   return {type: types.RECEIVE_ALL_QUOTES, quotes: json};
 }
 
-// TODO - refactor API interaction methods.
 // TODO - check response length?
 export function fetchQuote() {
   return dispatch => {
-    return fetch('/random/quote')
+    return fetch('/api/random/quote')
     .then(response => response.json())
     .then(json => dispatch(receiveQuote(json)));
   };
@@ -32,7 +31,7 @@ export function fetchQuote() {
 
 export function fetchQuotes() {
   return dispatch => {
-    return fetch('/quotes')
+    return fetch('/api/quotes')
     .then(response => response.json())
     .then(json => dispatch(receiveAllQuotes(json)));
   };
